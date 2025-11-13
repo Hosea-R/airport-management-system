@@ -80,11 +80,11 @@ const server = app.listen(PORT, () => {
   console.log(`
 ╔═══════════════════════════════════════════════════════╗
 ║                                                       ║
-║   🛫  SYSTÈME DE GESTION DE VOLS - MADAGASCAR  🛬    ║
+║   🛫  SYSTÈME DE GESTION DE VOLS - MADAGASCAR  🛬     ║
 ║                                                       ║
-║   Serveur démarré avec succès                        ║
+║   Serveur démarré avec succès                         ║
 ║   Port: ${PORT}                                       ║
-║   Environnement: ${process.env.NODE_ENV}             ║
+║   Environnement: ${process.env.NODE_ENV}              ║
 ║   URL: http://localhost:${PORT}                       ║
 ║                                                       ║
 ╚═══════════════════════════════════════════════════════╝
