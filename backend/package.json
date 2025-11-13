@@ -1,0 +1,31 @@
+{
+  "name": "airport-management-backend",
+  "version": "1.0.0",
+  "description": "Système de gestion de vols pour aéroports Madagascar",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node utils/seedDatabase.js"
+  },
+  "keywords": ["airport", "flights", "madagascar"],
+  "author": "Hosea RAZANADRAKOTO",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-validator": "^7.3.0",
+    "form-data": "^4.0.4",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.3",
+    "morgan": "^1.10.1",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
