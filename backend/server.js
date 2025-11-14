@@ -9,6 +9,19 @@ const helmet = require('helmet');
 
 // Importer la fonction de connexion DB
 const connectDB = require('./config/database');
+const airportRoutes = require('./routes/airports');  // ← NOUVEAU
+const airlineRoutes = require('./routes/airlines');  // ← NOUVEAU
+
+// ========== IMPORTER TOUS LES MODÈLES (IMPORTANT) ==========
+// Cela enregistre les modèles dans Mongoose
+require('./models/Airport');
+require('./models/Airline');
+require('./models/User');
+require('./models/Flight');
+require('./models/Advertisement');
+require('./models/ScrollingText');
+require('./models/Log');
+
 
 // Importer les routes
 const authRoutes = require('./routes/auth');
@@ -62,8 +75,14 @@ app.get('/', (req, res) => {
 // Routes d'authentification
 app.use('/api/auth', authRoutes);
 
+// Routes des aéroports (SuperAdmin uniquement)
+app.use('/api/airports', airportRoutes);  // ← NOUVEAU
+
+// Routes des compagnies (SuperAdmin uniquement)
+app.use('/api/airlines', airlineRoutes);  // ← NOUVEAU
+
 // Route 404 (route non trouvée)
-app.use('*', (req, res) => {
+app.use((req, res) => {
   res.status(404).json({
     success: false,
     message: `Route ${req.originalUrl} non trouvée`
@@ -80,11 +99,11 @@ const server = app.listen(PORT, () => {
   console.log(`
 ╔═══════════════════════════════════════════════════════╗
 ║                                                       ║
-║   🛫  SYSTÈME DE GESTION DE VOLS - MADAGASCAR  🛬     ║
+║   🛫  SYSTÈME DE GESTION DE VOLS - MADAGASCAR  🛬    ║
 ║                                                       ║
-║   Serveur démarré avec succès                         ║
+║   Serveur démarré avec succès                        ║
 ║   Port: ${PORT}                                       ║
-║   Environnement: ${process.env.NODE_ENV}              ║
+║   Environnement: ${process.env.NODE_ENV}             ║
 ║   URL: http://localhost:${PORT}                       ║
 ║                                                       ║
 ╚═══════════════════════════════════════════════════════╝

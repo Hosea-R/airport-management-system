@@ -18,12 +18,16 @@ const logSchema = new mongoose.Schema(
         'flight_status_changed',
         'airport_created',
         'airport_updated',
+        'airport_deleted',
         'airline_created',
         'airline_updated',
+        'airline_deleted',          // ✅ AJOUTÉ
         'advertisement_created',
         'advertisement_updated',
+        'advertisement_deleted',    // ✅ AJOUTÉ
         'scrolling_text_created',
-        'scrolling_text_updated'
+        'scrolling_text_updated',
+        'scrolling_text_deleted'    // ✅ AJOUTÉ
       ]
     },
 
@@ -58,9 +62,7 @@ const logSchema = new mongoose.Schema(
     ipAddress: {
       type: String,
       default: null
-    },
-
-    // Timestamp (automatique avec timestamps: true)
+    }
   },
   {
     timestamps: { createdAt: 'timestamp', updatedAt: false }
