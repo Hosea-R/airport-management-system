@@ -133,7 +133,7 @@ const LoginPage = () => {
             </button>
           </form>
 
-          {/* Comptes de test */}
+          {/* Comptes de test
           <div className="mt-6 pt-6 border-t border-gray-200">
             <p className="text-sm text-gray-600 mb-2">
               Comptes de test :
@@ -142,7 +142,7 @@ const LoginPage = () => {
               <div>SuperAdmin: superadmin@airport.mg / admin123</div>
               <div>Admin TNR: admin.tnr@airport.mg / admin123</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
