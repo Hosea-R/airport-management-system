@@ -9,6 +9,8 @@ import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import RegionalAdminDashboard from './pages/RegionalAdminDashboard';
 import AirportsManagement from './pages/AirportsManagement';
 import AirlinesManagement from './pages/AirlinesManagement';
+import FlightsManagement from './pages/FlightsManagement';
+import RegionalFlightsManagement from './pages/RegionalFlightsManagement';
 
 function App() {
   return (
@@ -46,12 +48,30 @@ function App() {
             }
           />
 
+          <Route
+            path="/superadmin/flights"
+            element={
+              <ProtectedRoute requiredRole="superadmin">
+                <FlightsManagement />
+              </ProtectedRoute>
+            }
+          />
+
           {/* Routes protégées Admin Régional */}
           <Route
             path="/admin/dashboard"
             element={
               <ProtectedRoute requiredRole="admin_regional">
                 <RegionalAdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          
+          <Route
+            path="/admin/flights"
+            element={
+              <ProtectedRoute requiredRole="admin_regional">
+                <RegionalFlightsManagement />
               </ProtectedRoute>
             }
           />

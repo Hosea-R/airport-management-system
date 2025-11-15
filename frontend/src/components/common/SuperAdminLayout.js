@@ -45,7 +45,7 @@ const SuperAdminLayout = ({ children }) => {
       name: "Vols",
       path: "/superadmin/flights",
       icon: FaPlane,
-      disabled: true, // Phase 3
+      disabled: false, // Phase 3
     },
     {
       name: "Publicités",

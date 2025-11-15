@@ -7,10 +7,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const helmet = require('helmet');
 
-// Importer la fonction de connexion DB
-const connectDB = require('./config/database');
-const airportRoutes = require('./routes/airports');  // ← NOUVEAU
-const airlineRoutes = require('./routes/airlines');  // ← NOUVEAU
+
 
 // ========== IMPORTER TOUS LES MODÈLES (IMPORTANT) ==========
 // Cela enregistre les modèles dans Mongoose
@@ -25,6 +22,11 @@ require('./models/Log');
 
 // Importer les routes
 const authRoutes = require('./routes/auth');
+// Importer la fonction de connexion DB
+const connectDB = require('./config/database');
+const airportRoutes = require('./routes/airports');  // ← NOUVEAU
+const airlineRoutes = require('./routes/airlines');  // ← NOUVEAU
+const flightRoutes = require('./routes/flights');
 
 // Importer le middleware d'erreurs
 const errorHandler = require('./middleware/errorHandler');
@@ -80,6 +82,9 @@ app.use('/api/airports', airportRoutes);  // ← NOUVEAU
 
 // Routes des compagnies (SuperAdmin uniquement)
 app.use('/api/airlines', airlineRoutes);  // ← NOUVEAU
+
+// Routes des vols (SuperAdmin et Admin Regional)
+app.use('/api/flights', flightRoutes); 
 
 // Route 404 (route non trouvée)
 app.use((req, res) => {
